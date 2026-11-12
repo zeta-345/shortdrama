@@ -152,7 +152,7 @@ var IMG={"장시": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEB
 P.forEach(function(p){if(p.cat==='actor'){var n=p.t.replace(' 프로필','');if(IMG[n]){p.img=IMG[n];
  var a=A.filter(function(x){return x[0]===n})[0]||[],rv=P.filter(function(q){return q.cat.indexOf("review-")===0&&q.tags.indexOf(n)>-1}),ex=[];
  P.forEach(function(q){if(q.cat!=="cp"||q.tags.indexOf(n)<0)return;(q.body.match(/<span>[^<]*<\/span>/g)||[]).forEach(function(sp){var t=sp.slice(6,-7);if(!P.some(function(r){return r.cat.indexOf("review-")===0&&r.t===t}))ex.push({t:t,id:q.id})})});
- var it=rv.map(function(q){var r=R.filter(function(x){return x[0]===q.t})[0];return {t:q.t,id:q.id,c:ACAT[n],m:"<span class='st'>"+(r?S(r[3]):"")+"</span>"}}).concat(ex.map(function(e){return {t:e.t,id:e.id,m:"<span class='no'>후기 전 · 체크리스트</span>"}}));
+ var it=rv.map(function(q){var r=R.filter(function(x){return x[0]===q.t})[0];return {t:q.t,id:q.id,c:ACAT[n],m:""}}).concat(ex.map(function(e){return {t:e.t,id:e.id}}));
  it.forEach(function(x){x.d=REL[x.t]||""});
  it.sort(function(x,y){if(!x.d&&!y.d)return 0;if(!x.d)return 1;if(!y.d)return -1;if(x.d===y.d)return 0;return (x.d<y.d?1:-1)*(DESC?1:-1)});
  var fl=it.map(function(x){return "<li>"+(x.d?"<span class='dt2'>"+x.d+"</span> ":"")+"<a href='#"+x.id+"'"+(x.c?" data-ctx='"+x.c+"'":"")+">"+x.t+"</a> "+x.m+"</li>"}).join("");
