@@ -112,8 +112,6 @@ add("cp","융정밀의 戎情蜜宜 작품 체크리스트","🍯🌹",
 "<ul class='ck'><li><label><input type='checkbox' data-k='rj1'><span>탁CP불성, 반성파마심첨총 拆CP不成，反成爸妈心尖宠</span></label></li><li><label><input type='checkbox' data-k='rj2' checked><span>매괴경전시 玫瑰轻颤时</span></label></li><li><label><input type='checkbox' data-k='rj3' checked><span>무쇄정미 雾锁情迷</span></label></li></ul>",["융정밀의","戎情蜜宜","카룽","장진의"],"🍯🌹");
 var R=[
 ["패견여천아경 败犬与天鹅颈","남주 장시(张翅), 여주 지춘화(至春禾)","review-jangsi",4,"ㅠㅠㅠㅠㅠ너무 아름다운 이야기였음... 남자아이가 여자아이를 너무 좋아하고 여자아이도 남자아이를 너무 좋아함.. 잔잔하고 감동적인 스토리였음..ㅜ 신파 걱정했는데 없어서 다행 이때부터 아기부부 분위기 났구나 내 전시봉춘"],
-["탁CP불성, 반성파마심첨총 拆CP不成，反成爸妈心尖宠","남주 카룽(卡戎), 여주 장진의(张晋宜), 출연 지춘화(至春禾)","review-karung",0,"소재 흥미로워서 전에 보다가 멈췄는데 지금 보니 카룽, 지춘화, 장진의까지 다 아는 배우들이라서 신기.. 그리고 나 지금 카룽♡장진의 미는데 여기서 카룽이랑 장진의가 아빠랑 엄마 역으로 나와서 보려고..."],
-["니시세간최찬 你是世间璀璨","남주 류윤명(刘润铭), 여주 서진진(徐轸轸)","review-ryu",0,"별점 대기 중."],
 ["암련시과성성당 暗恋是颗星星糖","남주 장시(张翅), 여주 지춘화(至春禾)","review-jangsi",5,"이거 내가 장시♡지춘화 파게 된 입문작. 러닝타임이 세시간쯤 되는데 3시간동안 간질간질하게 썸탐♡♡♡"],
 ["지두춘의뇨 枝头春意闹","남주 장시(张翅), 여주 지춘화(至春禾)","review-jangsi",4,"하... 이거 나 입덕하기 한 달 전에 나온 거래서 봤는데 장시랑 지춘화 6번째로 호흡 맞춘 작품답게 눈빛만 봐도 서로 마음을 아는 연기 너무잘함ㅠㅠ 너무 좋아"],
 ["불후, 과기리혼 不候，过期离婚","남주 장시(张翅), 여주 지춘화(至春禾)","review-jangsi",3,"암련시과성성당 보고 나서 다른 거 보려는데 헤어나오질 못하겠는 상태일 때 장시♡지춘화길래 봤음. 근데 솔직히 내용은 그닥인데 천방지축 연하 멍멍이 장시가 굿."],
@@ -204,7 +202,7 @@ function route(){
  window.scrollTo(0,0);
  if(h.indexOf("tag-")===0){var tg=h.slice(4);try{tg=decodeURIComponent(tg)}catch(e){}ctx="";menu("");var tl=P.filter(function(p){return p.tags.indexOf(tg)>-1});main.innerHTML="<p class='ptitle'>#"+esc(tg)+" ("+tl.length+") · <a href='#home' style='text-decoration:underline'>전체 글</a></p>"+(tl.length?tl.map(itemHTML).join(""):"<p>이 태그가 달린 글이 없어요.</p>");return}
  if(post){
-  var cc=(ctx&&ctx!=="home"&&ctx!=="review"&&inCat(post,ctx))?ctx:post.cat;
+  var cc=(ctx==="home"&&inCat(post,"home"))?"home":(ctx&&ctx!=="review"&&inCat(post,ctx))?ctx:post.cat;
   var group=P.filter(function(p){return inCat(p,cc)}),i=group.indexOf(post),prev=group[i+1],next=group[i-1];
   menu(cc);
   var cn=CATS.filter(function(c){return c[0]===cc})[0][1];
